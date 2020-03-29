@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Provider - 1{% endblock %}
+
+{% block body %}
+    $fgc1 = file_get_contents("http://www.mocky.io/v2/5d47f24c330000623fa3ebfa");
+    $json1 = json_decode($fgc1, true);
+    foreach($json1 as $key => $value){
+    $zorluk = $value['zorluk'];
+    $sure = $value['sure'];
+    $id = $value['id'];
+
+    echo $zorluk."<br/>";
+    echo $sure."<br/>";
+    echo $id."<br/>";
+    echo "<hr/>";
+    }
+{% endblock %}

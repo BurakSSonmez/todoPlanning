@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}To-Do Planning{% endblock %}
+
+{% block body %}
+    {% if planning %}
+        <table id="planning" class="table table-striped">
+            <thead>
+            <tr>
+                <th>Developer</th>
+                <th>Sure</th>
+                <th>Zorluk</th>
+                <th>İşlemler</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for plannings in planning %}
+                <tr>
+                    <td>{{ plannings.developer }}</td>
+                    <td>{{ plannings.sure }}</td>
+                    <td>{{ plannings.zor }}</td>
+                    <td>
+                        <a href="todoPlanning/public/planning/{{ plannings.id }}" class="btn btn-dark">Show</a>
+                        <a href="todoPlanning/public/planning/edit/{{ plannings.id }}" class="btn btn-light">Edit</a>
+                        <a href="#" class="btn btn-danger delete-planning" data-id="{{ plannings.id }}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No developers to display</p>
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    <script src="js/main.js"></script>
+{% endblock %}
